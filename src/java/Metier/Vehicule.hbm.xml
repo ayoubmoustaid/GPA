@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22 f?vr. 2015 15:49:45 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Metier.Vehicule" table="vehicule" catalog="gpa_bd" optimistic-lock="version">
+        <id name="matricule" type="string">
+            <column name="MATRICULE" length="100" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="modele" class="Metier.Modele" fetch="select">
+            <column name="CODEMODELE" not-null="true" />
+        </many-to-one>
+        <property name="noimputation" type="string">
+            <column name="NOIMPUTATION" length="100" />
+        </property>
+        <property name="typeacquisition" type="string">
+            <column name="TYPEACQUISITION" length="100" />
+        </property>
+        <property name="nocartegrise" type="string">
+            <column name="NOCARTEGRISE" length="100" />
+        </property>
+        <property name="datemisecirculation" type="date">
+            <column name="DATEMISECIRCULATION" length="10" />
+        </property>
+        <property name="now" type="string">
+            <column name="NOW" length="100" />
+        </property>
+        <property name="poids" type="java.lang.Double">
+            <column name="POIDS" precision="22" scale="0" />
+        </property>
+        <property name="carburant" type="string">
+            <column name="CARBURANT" length="15" />
+        </property>
+        <property name="nochassis" type="string">
+            <column name="NOCHASSIS" length="100" />
+        </property>
+        <property name="nbrplaces" type="java.lang.Integer">
+            <column name="NBRPLACES" />
+        </property>
+        <property name="confort" type="string">
+            <column name="CONFORT" length="100" />
+        </property>
+        <property name="couleur" type="string">
+            <column name="COULEUR" length="100" />
+        </property>
+        <property name="daterestitution" type="date">
+            <column name="DATERESTITUTION" length="10" />
+        </property>
+        <property name="ancienmatricule" type="string">
+            <column name="ANCIENMATRICULE" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

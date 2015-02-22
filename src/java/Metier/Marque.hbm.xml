@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22 f?vr. 2015 15:49:45 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Metier.Marque" table="marque" catalog="gpa_bd" optimistic-lock="version">
+        <id name="codemarque" type="int">
+            <column name="CODEMARQUE" />
+            <generator class="assigned" />
+        </id>
+        <property name="libellemarque" type="string">
+            <column name="LIBELLEMARQUE" length="100" />
+        </property>
+        <property name="descriptionmarque" type="string">
+            <column name="DESCRIPTIONMARQUE" length="1000" />
+        </property>
+        <set name="modeles" table="modele" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODEMARQUE" not-null="true" />
+            </key>
+            <one-to-many class="Metier.Modele" />
+        </set>
+    </class>
+</hibernate-mapping>
